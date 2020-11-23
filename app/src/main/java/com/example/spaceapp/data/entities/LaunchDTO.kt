@@ -1,4 +1,4 @@
-package com.example.spaceapp.domain.entities
+package com.example.spaceapp.data.entities
 
 import java.util.Date
 
@@ -6,10 +6,10 @@ data class LaunchDTO(
     val count: Int,
     val next: String?,
     val previous: String?,
-    val results: List<LaunchResultDTO>
+    val results: List<RocketLaunchDTO>
 )
 
-data class LaunchResultDTO(
+data class RocketLaunchDTO(
     val id: String,
     val url: String,
     val launch_library_id: Int?,
