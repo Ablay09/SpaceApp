@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SpaceApp</string>
+    <string name="upcoming_launches">upcoming</string>
+    <string name="past_launches">past</string>
 </resources>

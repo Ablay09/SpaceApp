@@ -3,16 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
     <ImageView
         android:id="@+id/ivRocket"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_launcher_background" />
+        app:layout_constraintEnd_toStartOf="@id/verticalGuidline"
+        tools:src="@drawable/ic_launcher_foreground" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
 
     <TextView
         android:id="@+id/tvRocketName"
@@ -20,7 +29,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivRocket"
+        app:layout_constraintStart_toEndOf="@id/verticalGuidline"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Falcon 9 Block 5" />
 
@@ -29,8 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@id/tvRocketName"
-        app:layout_constraintStart_toStartOf="@id/tvRocketName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivRocket"
         app:layout_constraintTop_toBottomOf="@id/tvRocketName"
         tools:text="SpaceX" />
 
@@ -39,8 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@id/tvRocketServiceProvider"
-        app:layout_constraintStart_toStartOf="@id/tvRocketServiceProvider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivRocket"
         app:layout_constraintTop_toBottomOf="@id/tvRocketServiceProvider"
         tools:text="Cape Canaveral, FL, USA" />
 

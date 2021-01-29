@@ -8,9 +8,7 @@ import com.example.spaceapp.domain.entities.UpcomingLaunch.UpcomingLaunch
 object UpcomingLaunchMapper {
 
     fun LaunchDTO.toDomain(): UpcomingLaunch {
-        val launchList = results.map {
-            it.toDomain()
-        }
+        val launchList = results.map { it.toDomain() }
 
         return UpcomingLaunch(upcomingLaunches = launchList)
     }
