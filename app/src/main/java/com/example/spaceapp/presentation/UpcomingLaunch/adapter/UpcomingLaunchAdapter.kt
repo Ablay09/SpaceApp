@@ -1,22 +1,26 @@
 package com.example.spaceapp.presentation.UpcomingLaunch.adapter
 
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.spaceapp.R
-import com.example.spaceapp.core.inflate
+import com.example.spaceapp.databinding.ItemUpcomingLaunchBinding
 import com.example.spaceapp.domain.entities.UpcomingLaunch.UpcomingLaunch
 
 class UpcomingLaunchAdapter constructor(private val items: List<UpcomingLaunch>) :
     RecyclerView.Adapter<UpcomingLaunchAdapter.LaunchViewHolder>() {
 
-    inner class LaunchViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class LaunchViewHolder constructor(private val viewBinding: ItemUpcomingLaunchBinding) :
+        RecyclerView.ViewHolder(viewBinding.root) {
+
         fun bind() = with(itemView) {
+
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LaunchViewHolder {
-        return LaunchViewHolder(parent.inflate(R.layout.item_upcoming_launch))
+        val viewBinding = ItemUpcomingLaunchBinding
+            .inflate(LayoutInflater.from(parent.context), parent, false)
+        return LaunchViewHolder(viewBinding)
     }
 
     override fun onBindViewHolder(holder: LaunchViewHolder, position: Int) {
