@@ -3,6 +3,8 @@ package com.example.spaceapp.presentation.UpcomingLaunch.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.spaceapp.R
+import com.example.spaceapp.core.load
 import com.example.spaceapp.databinding.ItemUpcomingLaunchBinding
 import com.example.spaceapp.domain.entities.UpcomingLaunch.LaunchResult
 
@@ -26,7 +28,7 @@ class UpcomingLaunchAdapter :
             tvRocketName.text = item.rocket.rocketConfiguration.fullName
             tvRocketServiceProvider.text = item.launchServiceProvider.name
             tvRocketLocation.text = item.pad.location.name
-
+            ivRocket.load(item.image, R.drawable.rocket_placeholder)
         }
     }
 
