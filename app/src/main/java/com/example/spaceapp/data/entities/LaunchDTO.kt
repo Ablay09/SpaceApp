@@ -33,7 +33,7 @@ data class RocketLaunchDTO(
     val vidURLs: String,
     val webcast_live: Boolean,
     val image: String,
-    val infographic: String,
+    val infographic: String?,
     val program: List<LaunchProgramDTO>
 )
 

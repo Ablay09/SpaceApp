@@ -4,15 +4,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spaceapp.databinding.ItemUpcomingLaunchBinding
-import com.example.spaceapp.domain.entities.UpcomingLaunch.UpcomingLaunch
+import com.example.spaceapp.domain.entities.UpcomingLaunch.LaunchResult
 
-class UpcomingLaunchAdapter constructor(private val items: List<UpcomingLaunch>) :
+class UpcomingLaunchAdapter :
     RecyclerView.Adapter<UpcomingLaunchAdapter.LaunchViewHolder>() {
+
+    private var items =  mutableListOf<LaunchResult>()
+
+    fun setItems(items: List<LaunchResult>) {
+        this.items.clear()
+        this.items.addAll(items)
+        notifyDataSetChanged()
+    }
 
     inner class LaunchViewHolder constructor(private val viewBinding: ItemUpcomingLaunchBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
 
-        fun bind() = with(itemView) {
+        lateinit var item: LaunchResult
+
+        fun bind() = with(viewBinding) {
+            tvRocketName.text = item.rocket.rocketConfiguration.fullName
+            tvRocketServiceProvider.text = item.launchServiceProvider.name
+            tvRocketLocation.text = item.pad.location.name
 
         }
     }
@@ -24,7 +37,8 @@ class UpcomingLaunchAdapter constructor(private val items: List<UpcomingLaunch>)
     }
 
     override fun onBindViewHolder(holder: LaunchViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.item = items[position]
+        holder.bind()
     }
 
     override fun getItemCount(): Int = items.size
